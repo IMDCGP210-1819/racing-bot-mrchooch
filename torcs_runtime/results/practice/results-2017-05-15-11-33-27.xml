@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE params SYSTEM "C:/Users/Games/Documents/torcs/runtime/config/params.dtd">
+<?xml-stylesheet type="text/xsl" href="file:///C:/Users/Games/Documents/torcs/runtime/config/style.xsl"?>
+
+<params name="Results">
+  <section name="Header">
+    <attnum name="date" val="1.49484e+009"/>
+  </section>
+
+  <section name="Current">
+    <attnum name="current track" val="1"/>
+    <attnum name="current race" val="1"/>
+    <attnum name="current driver" val="1"/>
+  </section>
+
+  <section name="Brondehach">
+    <section name="Drivers">
+      <section name="1">
+        <attstr name="dll name" val="jamieson"/>
+        <attnum name="index" val="1"/>
+      </section>
+
+    </section>
+
+    <section name="Results">
+      <section name="Practice">
+        <attstr name="driver name" val="jamieson"/>
+        <section name="1">
+          <attnum name="time" val="133.258"/>
+          <attnum name="best lap time" val="0"/>
+          <attnum name="top speed" val="68.0491"/>
+          <attnum name="bottom speed" val="-15.8777"/>
+          <attnum name="dammages" val="366"/>
+        </section>
+
+        <section name="2">
+          <attnum name="time" val="195.982"/>
+          <attnum name="best lap time" val="0"/>
+          <attnum name="top speed" val="67.9232"/>
+          <attnum name="bottom speed" val="-16.1776"/>
+          <attnum name="dammages" val="541"/>
+        </section>
+
+      </section>
+
+    </section>
+
+  </section>
+
+</params>

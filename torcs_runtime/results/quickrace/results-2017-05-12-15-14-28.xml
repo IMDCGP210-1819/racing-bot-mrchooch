@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE params SYSTEM "C:/Users/Games/Documents/torcs/runtime/config/params.dtd">
+<?xml-stylesheet type="text/xsl" href="file:///C:/Users/Games/Documents/torcs/runtime/config/style.xsl"?>
+
+<params name="Results">
+  <section name="Header">
+    <attnum name="date" val="1.4946e+009"/>
+  </section>
+
+  <section name="Current">
+    <attnum name="current track" val="1"/>
+    <attnum name="current race" val="1"/>
+    <attnum name="current driver" val="1"/>
+  </section>
+
+  <section name="Spring">
+    <section name="Drivers">
+      <section name="1">
+        <attstr name="dll name" val="barber"/>
+        <attnum name="index" val="1"/>
+      </section>
+
+      <section name="2">
+        <attstr name="dll name" val="chamberlain"/>
+        <attnum name="index" val="1"/>
+      </section>
+
+      <section name="3">
+        <attstr name="dll name" val="crewe"/>
+        <attnum name="index" val="1"/>
+      </section>
+
+      <section name="4">
+        <attstr name="dll name" val="dewhurst"/>
+        <attnum name="index" val="1"/>
+      </section>
+
+      <section name="5">
+        <attstr name="dll name" val="dorman"/>
+        <attnum name="index" val="1"/>
+      </section>
+
+      <section name="6">
+        <attstr name="dll name" val="jamieson"/>
+        <attnum name="index" val="1"/>
+      </section>
+
+      <section name="7">
+        <attstr name="dll name" val="manthorp"/>
+        <attnum name="index" val="1"/>
+      </section>
+
+      <section name="8">
+        <attstr name="dll name" val="pyke"/>
+        <attnum name="index" val="1"/>
+      </section>
+
+      <section name="9">
+        <attstr name="dll name" val="reynolds"/>
+        <attnum name="index" val="1"/>
+      </section>
+
+      <section name="10">
+        <attstr name="dll name" val="wilby"/>
+        <attnum name="index" val="1"/>
+      </section>
+
+      <section name="11">
+        <attstr name="dll name" val="wilson"/>
+        <attnum name="index" val="1"/>
+      </section>
+
+    </section>
+
+    <section name="Results">
+      <section name="Quick Race">
+        <attnum name="laps" val="1"/>
+        <section name="Rank">
+          <section name="1">
+            <attstr name="name" val="reynolds"/>
+            <attstr name="car" val="car1-stock1"/>
+            <attnum name="index" val="8"/>
+            <attnum name="laps" val="1"/>
+            <attnum name="time" val="610.686"/>
+            <attnum name="penaltytime" val="0"/>
+            <attnum name="best lap time" val="0"/>
+            <attnum name="top speed" val="72.9407"/>
+            <attnum name="dammages" val="942"/>
+            <attnum name="pits stops" val="0"/>
+            <attstr name="module" val="reynolds"/>
+            <attnum name="idx" val="1"/>
+            <attnum name="points" val="0"/>
+          </section>
+
+          <section name="2">
+            <attstr name="name" val="crewe"/>
+            <attstr name="car" val="car1-stock1"/>
+            <attnum name="index" val="2"/>
+            <attnum name="laps" val="1"/>
+            <attnum name="time" val="667.418"/>
+            <attnum name="penaltytime" val="1.21031"/>
+            <attnum name="best lap time" val="0"/>
+            <attnum name="top speed" val="71.9405"/>
+            <attnum name="dammages" val="4062"/>
+            <attnum name="pits stops" val="0"/>
+            <attstr name="module" val="crewe"/>
+            <attnum name="idx" val="1"/>
+            <attnum name="points" val="0"/>
+          </section>
+
+          <section name="3">
+            <attstr name="name" val="barber"/>
+            <attstr name="car" val="car1-stock1"/>
+            <attnum name="index" val="0"/>
+            <attnum name="laps" val="1"/>
+            <attnum name="time" val="670.408"/>
+            <attnum name="penaltytime" val="0"/>
+            <attnum name="best lap time" val="670.408"/>
+            <attnum name="top speed" val="67.44"/>
+            <attnum name="dammages" val="0"/>
+            <attnum name="pits stops" val="0"/>
+            <attstr name="module" val="barber"/>
+            <attnum name="idx" val="1"/>
+            <attnum name="points" val="0"/>
+          </section>
+
+          <section name="4">
+            <attstr name="name" val="pyke"/>
+            <attstr name="car" val="car1-stock1"/>
+            <attnum name="index" val="7"/>
+            <attnum name="laps" val="1"/>
+            <attnum name="time" val="982.076"/>
+            <attnum name="penaltytime" val="41.0257"/>
+            <attnum name="best lap time" val="0"/>
+            <attnum name="top speed" val="77.1991"/>
+            <attnum name="dammages" val="1270"/>
+            <attnum name="pits stops" val="0"/>
+            <attstr name="module" val="pyke"/>
+            <attnum name="idx" val="1"/>
+            <attnum name="points" val="0"/>
+          </section>
+
+          <section name="5">
+            <attstr name="name" val="manthorp"/>
+            <attstr name="car" val="car1-stock1"/>
+            <attnum name="index" val="6"/>
+            <attnum name="laps" val="1"/>
+            <attnum name="time" val="1301.66"/>
+            <attnum name="penaltytime" val="0"/>
+            <attnum name="best lap time" val="0"/>
+            <attnum name="top speed" val="44.9193"/>
+            <attnum name="dammages" val="658"/>
+            <attnum name="pits stops" val="0"/>
+            <attstr name="module" val="manthorp"/>
+            <attnum name="idx" val="1"/>
+            <attnum name="points" val="0"/>
+          </section>
+
+          <section name="6">
+            <attstr name="name" val="jamieson"/>
+            <attstr name="car" val="car1-stock1"/>
+            <attnum name="index" val="5"/>
+            <attnum name="laps" val="0"/>
+            <attnum name="time" val="0"/>
+            <attnum name="penaltytime" val="0"/>
+            <attnum name="best lap time" val="0"/>
+            <attnum name="top speed" val="75.0388"/>
+            <attnum name="dammages" val="86"/>
+            <attnum name="pits stops" val="0"/>
+            <attstr name="module" val="jamieson"/>
+            <attnum name="idx" val="1"/>
+            <attnum name="points" val="0"/>
+          </section>
+
+          <section name="7">
+            <attstr name="name" val="chamberlain"/>
+            <attstr name="car" val="car1-stock1"/>
+            <attnum name="index" val="1"/>
+            <attnum name="laps" val="0"/>
+            <attnum name="time" val="0"/>
+            <attnum name="penaltytime" val="0"/>
+            <attnum name="best lap time" val="0"/>
+            <attnum name="top speed" val="83.1392"/>
+            <attnum name="dammages" val="1704"/>
+            <attnum name="pits stops" val="0"/>
+            <attstr name="module" val="chamberlain"/>
+            <attnum name="idx" val="1"/>
+            <attnum name="points" val="0"/>
+          </section>
+
+          <section name="8">
+            <attstr name="name" val="wilson"/>
+            <attstr name="car" val="car1-stock1"/>
+            <attnum name="index" val="10"/>
+            <attnum name="laps" val="-1"/>
+            <attnum name="time" val="0"/>
+            <attnum name="penaltytime" val="0"/>
+            <attnum name="best lap time" val="0"/>
+            <attnum name="top speed" val="0"/>
+            <attnum name="dammages" val="0"/>
+            <attnum name="pits stops" val="0"/>
+            <attstr name="module" val="wilson"/>
+            <attnum name="idx" val="1"/>
+            <attnum name="points" val="0"/>
+          </section>
+
+          <section name="9">
+            <attstr name="name" val="dewhurst"/>
+            <attstr name="car" val="car1-stock1"/>
+            <attnum name="index" val="3"/>
+            <attnum name="laps" val="0"/>
+            <attnum name="time" val="0.903025"/>
+            <attnum name="penaltytime" val="0.903025"/>
+            <attnum name="best lap time" val="0"/>
+            <attnum name="top speed" val="62.2736"/>
+            <attnum name="dammages" val="10079"/>
+            <attnum name="pits stops" val="0"/>
+            <attstr name="module" val="dewhurst"/>
+            <attnum name="idx" val="1"/>
+            <attnum name="points" val="0"/>
+          </section>
+
+          <section name="10">
+            <attstr name="name" val="dorman"/>
+            <attstr name="car" val="car1-stock1"/>
+            <attnum name="index" val="4"/>
+            <attnum name="laps" val="0"/>
+            <attnum name="time" val="8.07763"/>
+            <attnum name="penaltytime" val="8.07763"/>
+            <attnum name="best lap time" val="0"/>
+            <attnum name="top speed" val="85.2187"/>
+            <attnum name="dammages" val="3545"/>
+            <attnum name="pits stops" val="0"/>
+            <attstr name="module" val="dorman"/>
+            <attnum name="idx" val="1"/>
+            <attnum name="points" val="0"/>
+          </section>
+
+          <section name="11">
+            <attstr name="name" val="wilby"/>
+            <attstr name="car" val="car1-stock1"/>
+            <attnum name="index" val="9"/>
+            <attnum name="laps" val="0"/>
+            <attnum name="time" val="14.8106"/>
+            <attnum name="penaltytime" val="14.8106"/>
+            <attnum name="best lap time" val="0"/>
+            <attnum name="top speed" val="50.4847"/>
+            <attnum name="dammages" val="11083"/>
+            <attnum name="pits stops" val="0"/>
+            <attstr name="module" val="wilby"/>
+            <attnum name="idx" val="1"/>
+            <attnum name="points" val="0"/>
+          </section>
+
+        </section>
+
+      </section>
+
+    </section>
+
+  </section>
+
+  <section name="Standings">
+    <section name="1">
+      <attstr name="name" val="reynolds"/>
+      <attstr name="module" val="reynolds"/>
+      <attnum name="idx" val="1"/>
+      <attnum name="points" val="0"/>
+    </section>
+
+    <section name="2">
+      <attstr name="name" val="crewe"/>
+      <attstr name="module" val="crewe"/>
+      <attnum name="idx" val="1"/>
+      <attnum name="points" val="0"/>
+    </section>
+
+    <section name="3">
+      <attstr name="name" val="barber"/>
+      <attstr name="module" val="barber"/>
+      <attnum name="idx" val="1"/>
+      <attnum name="points" val="0"/>
+    </section>
+
+    <section name="4">
+      <attstr name="name" val="pyke"/>
+      <attstr name="module" val="pyke"/>
+      <attnum name="idx" val="1"/>
+      <attnum name="points" val="0"/>
+    </section>
+
+    <section name="5">
+      <attstr name="name" val="manthorp"/>
+      <attstr name="module" val="manthorp"/>
+      <attnum name="idx" val="1"/>
+      <attnum name="points" val="0"/>
+    </section>
+
+    <section name="6">
+      <attstr name="name" val="jamieson"/>
+      <attstr name="module" val="jamieson"/>
+      <attnum name="idx" val="1"/>
+      <attnum name="points" val="0"/>
+    </section>
+
+    <section name="7">
+      <attstr name="name" val="chamberlain"/>
+      <attstr name="module" val="chamberlain"/>
+      <attnum name="idx" val="1"/>
+      <attnum name="points" val="0"/>
+    </section>
+
+    <section name="8">
+      <attstr name="name" val="wilson"/>
+      <attstr name="module" val="wilson"/>
+      <attnum name="idx" val="1"/>
+      <attnum name="points" val="0"/>
+    </section>
+
+    <section name="9">
+      <attstr name="name" val="dewhurst"/>
+      <attstr name="module" val="dewhurst"/>
+      <attnum name="idx" val="1"/>
+      <attnum name="points" val="0"/>
+    </section>
+
+    <section name="10">
+      <attstr name="name" val="dorman"/>
+      <attstr name="module" val="dorman"/>
+      <attnum name="idx" val="1"/>
+      <attnum name="points" val="0"/>
+    </section>
+
+    <section name="11">
+      <attstr name="name" val="wilby"/>
+      <attstr name="module" val="wilby"/>
+      <attnum name="idx" val="1"/>
+      <attnum name="points" val="0"/>
+    </section>
+
+  </section>
+
+</params>

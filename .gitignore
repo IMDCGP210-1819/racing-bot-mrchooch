@@ -10,6 +10,7 @@ src/tools/nfsperf/nfsperf
 src/tools/texmapper/texmapper
 src/tools/trackgen/trackgen
 src/tags
+src/drivers/S191857/.vs
 *.a
 *-bin
 *.depend
@@ -17,9 +18,13 @@ src/tags
 *.so
 *.spec
 *.swp
+*.PACK
+*.IDX
 runtime/
 runtimed/
 Release/
 Debug/
 TORCS.opensdf
 TORCS.sdf
+.git/
+road.zip

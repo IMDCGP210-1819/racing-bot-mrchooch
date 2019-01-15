@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE params SYSTEM "C:/Users/Games/Documents/torcs/runtime/config/params.dtd">
+<?xml-stylesheet type="text/xsl" href="file:///C:/Users/Games/Documents/torcs/runtime/config/style.xsl"?>
+
+<params name="Results">
+  <section name="Header">
+    <attnum name="date" val="1.49484e+009"/>
+  </section>
+
+  <section name="Current">
+    <attnum name="current track" val="1"/>
+    <attnum name="current race" val="1"/>
+    <attnum name="current driver" val="1"/>
+  </section>
+
+  <section name="Wheel 1">
+    <section name="Drivers">
+      <section name="1">
+        <attstr name="dll name" val="crewe"/>
+        <attnum name="index" val="1"/>
+      </section>
+
+    </section>
+
+    <section name="Results">
+      <section name="Practice">
+        <attstr name="driver name" val="crewe"/>
+        <section name="1">
+          <attnum name="time" val="125.51"/>
+          <attnum name="best lap time" val="125.51"/>
+          <attnum name="top speed" val="63.286"/>
+          <attnum name="bottom speed" val="14.3691"/>
+          <attnum name="dammages" val="0"/>
+        </section>
+
+        <section name="2">
+          <attnum name="time" val="119.7"/>
+          <attnum name="best lap time" val="119.7"/>
+          <attnum name="top speed" val="68.0033"/>
+          <attnum name="bottom speed" val="14.9321"/>
+          <attnum name="dammages" val="0"/>
+        </section>
+
+      </section>
+
+    </section>
+
+  </section>
+
+</params>
