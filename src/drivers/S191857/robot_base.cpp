@@ -106,28 +106,27 @@ drive(int index, tCarElt* car, tSituation *s)
 	car->ctrl.brakeCmd = 0.0; 
 }
 
-/* Get correct gear */
+/* Get the correct gear */
 static int getGear(tCarElt *car)
 {
-	//If in neutral or reverse, got to gear 1
-	if (car->_gear <= 0) return 1;
+	
+	if (car->_gear <= 0) return 1; //If in neutral or reverse, got to gear 1
+	
+	float omega = car->_enginerpmRedLine / (car->_gearRatio[car->_gear + car->_gearOffset]); //Used to calculate if gear needs to go up
 
-	float RPMRatio = car->_enginerpmRedLine / (car->_gearRatio[car->_gear + car->_gearOffset]);
-	float gearSpeed = RPMRatio * car->_wheelRadius(2) * 0.9;
-
-	//If gear needs to be increased
-	if (gearSpeed < car->_speed_x) {
+	//If faster than the maximum speed for the current gear, go up a gear
+	if (car->_speed_x > (omega * (car->_wheelRadius(2)) *  0.9)) {
 		return car->_gear + 1;
+	}
+	else {
+		omega = car->_enginerpmRedLine / (car->_gearRatio[car->_gear + car->_gearOffset - 1]); //Used to calculate if gear needs to go down
 
-	} else {
-		RPMRatio = car->_enginerpmRedLine / car->_gearRatio[car->_gear + car->_gearOffset - 1];
-
-		//If gear needs to be decreased
-		if (car->_gear > 1 && gearSpeed > car->_speed_x + 4) {
+		//If above gear 1 and speed is significantly lower than the maximum speed for the current gear, go down a gear
+		if (car->_gear > 1 && car->_speed_x + 4 < (omega * (car->_wheelRadius(2)) *  0.9)) {
 			return car->_gear - 1;
 		}
 	}
-	//If gear needs to stay as it is
+	//If speed is fine, stay in current gear
 	return car->_gear;
 }
 
