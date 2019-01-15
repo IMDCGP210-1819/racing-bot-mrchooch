@@ -94,22 +94,18 @@ static void
 drive(int index, tCarElt* car, tSituation *s) 
 { 
     memset((void *)&car->ctrl, 0, sizeof(tCarCtrl)); 
-    //car->ctrl.brakeCmd = 1.0; /* all brakes on ... */ 
 
-	car->_brakeCmd = 0.0;
-	car->_clutchCmd = 1.0;
-	car->_gearCmd = 1;
-	car->_clutchCmd = 0.0;
-	car->_accelCmd = 1.0;
+	float angle;
 
-    /*  
-     * add the driving code here to modify the 
-     * car->_steerCmd 
-     * car->_accelCmd 
-     * car->_brakeCmd 
-     * car->_gearCmd 
-     * car->_clutchCmd 
-     */ 
+	angle = RtTrackSideTgAngleL(&(car->_trkPos)) - car->_yaw; //Subtract road angle from steering angle
+	NORM_PI_PI(angle); // Normalise it
+	angle -= 1.0 * car->_trkPos.toMiddle / car->_trkPos.seg->width; //Steer car towards middle if not near middle
+
+	// Set car variables
+	car->ctrl.steer = angle / car->_steerLock;
+	car->ctrl.gear = 1; 
+	car->ctrl.accelCmd = 1; 
+	car->ctrl.brakeCmd = 0.0; 
 }
 
 /* End of the current race */
