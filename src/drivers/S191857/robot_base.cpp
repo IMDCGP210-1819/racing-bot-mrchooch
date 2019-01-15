@@ -40,6 +40,12 @@ static void endrace(int index, tCarElt *car, tSituation *s);
 static void shutdown(int index);
 static int  InitFuncPt(int index, void *pt); 
 static int getGear(tCarElt *car);
+static float getAllowedSpeed(tTrackSeg *segment);
+static float getAccel(tCarElt* car);
+static float getDistToSegEnd(tCarElt* car);
+static float getBrake(tCarElt* car);
+
+const float gravity = 9.81;
 
 /* 
  * Module entry point  
@@ -102,8 +108,13 @@ drive(int index, tCarElt* car, tSituation *s)
 	// Set car variables
 	car->ctrl.steer = angle / car->_steerLock;
 	car->ctrl.gear = getGear(car);
-	car->ctrl.accelCmd = 1; 
-	car->ctrl.brakeCmd = 0.0; 
+	car->ctrl.brakeCmd = getBrake(car);
+	if (car->ctrl.brakeCmd == 0.0) {
+		car->ctrl.accelCmd = getAccel(car);
+	}
+	else {
+		car->ctrl.accelCmd = 0.0;
+	}
 }
 
 /* Get the correct gear */
@@ -128,6 +139,75 @@ static int getGear(tCarElt *car)
 	}
 	//If speed is fine, stay in current gear
 	return car->_gear;
+}
+
+/* Get the allowed speed on a segment */
+static float getAllowedSpeed(tTrackSeg *segment)
+{
+	//If the track is straight, go full speed
+	if (segment->type == TR_STR) {
+		return FLT_MAX;
+	}
+	else {
+		//If not, calculate a safe speed to go
+		float mu = segment->surface->kFriction;
+		return sqrt(mu*gravity*segment->radius);
+	}
+}
+
+/* Get the distance to the end of the segment */
+static float getDistToSegEnd(tCarElt* car)
+{
+	//If the track is straight, the distance is length of the track minus how far into it the car has gone
+	if (car->_trkPos.seg->type == TR_STR) {
+		return car->_trkPos.seg->length - car->_trkPos.toStart;
+	}
+	else {
+		//If the track is not straight, do maths to calculate the distance left to go
+		return (car->_trkPos.seg->arc - car->_trkPos.toStart)*car->_trkPos.seg->radius;
+	}
+}
+
+/* Get appropriate acceleration */
+static float getAccel(tCarElt* car)
+{
+	float allowedspeed = getAllowedSpeed(car->_trkPos.seg);
+
+	//Accelerate if car is below max safe speed
+	if (car->_speed_x + 1.0 < allowedspeed) {
+		return 1.0;
+	}
+	else {
+		return allowedspeed / car->_wheelRadius(REAR_RGT)* (car->_gearRatio[car->_gear + car->_gearOffset]) / (car->_enginerpmRedLine);
+	}
+}
+
+/* Get if car should brake */
+static float getBrake(tCarElt* car)
+{
+	tTrackSeg *segptr = car->_trkPos.seg;
+	float currentspeedsqr = car->_speed_x*car->_speed_x;
+	float mu = segptr->surface->kFriction;
+	float maxlookaheaddist = currentspeedsqr / (2.0*mu*gravity);
+	float lookaheaddist = getDistToSegEnd(car);
+	float allowedspeed = getAllowedSpeed(segptr);
+
+	//If car is going too fast
+	if (car->_speed_x > allowedspeed) return 1.0;
+	segptr = segptr->next;
+	while (lookaheaddist < maxlookaheaddist) {
+		allowedspeed = getAllowedSpeed(segptr);
+		//If car is still going too fast
+		if (car->_speed_x > allowedspeed) {
+			float brakedist = (currentspeedsqr - (allowedspeed * allowedspeed)) / (2.0*mu*gravity);
+			if (brakedist > lookaheaddist) {
+				return 1.0;
+			}
+		}
+		lookaheaddist += segptr->length;
+		segptr = segptr->next;
+	}
+	return 0.0;
 }
 
 /* End of the current race */
