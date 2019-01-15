@@ -195,10 +195,12 @@ static float getBrake(tCarElt* car)
 	//If car is going too fast
 	if (car->_speed_x > allowedspeed) return 1.0;
 	segptr = segptr->next;
+
 	while (lookaheaddist < maxlookaheaddist) {
 		allowedspeed = getAllowedSpeed(segptr);
 		//If car is still going too fast
 		if (car->_speed_x > allowedspeed) {
+			//Distance needed to brake
 			float brakedist = (currentspeedsqr - (allowedspeed * allowedspeed)) / (2.0*mu*gravity);
 			if (brakedist > lookaheaddist) {
 				return 1.0;
@@ -207,6 +209,7 @@ static float getBrake(tCarElt* car)
 		lookaheaddist += segptr->length;
 		segptr = segptr->next;
 	}
+	//If car is going at the right speed, dont brake
 	return 0.0;
 }
 
