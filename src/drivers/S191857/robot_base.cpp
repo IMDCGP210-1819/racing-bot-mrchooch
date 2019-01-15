@@ -39,7 +39,7 @@ static void drive(int index, tCarElt* car, tSituation *s);
 static void endrace(int index, tCarElt *car, tSituation *s);
 static void shutdown(int index);
 static int  InitFuncPt(int index, void *pt); 
-
+static int getGear(tCarElt *car);
 
 /* 
  * Module entry point  
@@ -95,17 +95,40 @@ drive(int index, tCarElt* car, tSituation *s)
 { 
     memset((void *)&car->ctrl, 0, sizeof(tCarCtrl)); 
 
-	float angle;
-
-	angle = RtTrackSideTgAngleL(&(car->_trkPos)) - car->_yaw; //Subtract road angle from steering angle
+	float angle = RtTrackSideTgAngleL(&(car->_trkPos)) - car->_yaw; //Subtract road angle from steering angle
 	NORM_PI_PI(angle); // Normalise it
 	angle -= 1.0 * car->_trkPos.toMiddle / car->_trkPos.seg->width; //Steer car towards middle if not near middle
 
 	// Set car variables
 	car->ctrl.steer = angle / car->_steerLock;
-	car->ctrl.gear = 1; 
+	car->ctrl.gear = getGear(car);
 	car->ctrl.accelCmd = 1; 
 	car->ctrl.brakeCmd = 0.0; 
+}
+
+/* Get correct gear */
+static int getGear(tCarElt *car)
+{
+	//If in neutral or reverse, got to gear 1
+	if (car->_gear <= 0) return 1;
+
+	float RPMRatio = car->_enginerpmRedLine / (car->_gearRatio[car->_gear + car->_gearOffset]);
+	float gearSpeed = RPMRatio * car->_wheelRadius(2) * 0.9;
+
+	//If gear needs to be increased
+	if (gearSpeed < car->_speed_x) {
+		return car->_gear + 1;
+
+	} else {
+		RPMRatio = car->_enginerpmRedLine / car->_gearRatio[car->_gear + car->_gearOffset - 1];
+
+		//If gear needs to be decreased
+		if (car->_gear > 1 && gearSpeed > car->_speed_x + 4) {
+			return car->_gear - 1;
+		}
+	}
+	//If gear needs to stay as it is
+	return car->_gear;
 }
 
 /* End of the current race */
